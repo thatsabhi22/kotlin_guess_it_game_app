@@ -9,12 +9,14 @@ class GameViewModel : ViewModel() {
 
     // internal
     private val _word = MutableLiveData<String>()
+
     //external
     val word: LiveData<String>
         get() = _word
 
     // internal
     private val _score = MutableLiveData<Int>()
+
     //external
     val score: LiveData<Int>
         get() = _score
@@ -23,10 +25,10 @@ class GameViewModel : ViewModel() {
     private lateinit var wordList: MutableList<String>
 
     private val _eventGameFinish = MutableLiveData<Boolean>()
-    val eventGameFinish : LiveData<Boolean>
+    val eventGameFinish: LiveData<Boolean>
         get() = _eventGameFinish
 
-    init{
+    init {
         Timber.i("GameViewModel Created !!")
         _eventGameFinish.value = false
         resetList()
@@ -93,7 +95,7 @@ class GameViewModel : ViewModel() {
         wordList.shuffle()
     }
 
-    fun onGameFinishedComplete(){
+    fun onGameFinishedComplete() {
         _eventGameFinish.value = false
     }
 }
